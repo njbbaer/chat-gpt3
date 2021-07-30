@@ -18,15 +18,15 @@
         <div class="input-group-prepend">
           <span class="input-group-text">API Key</span>
         </div>
-        <input id="api-key" type="password" class="form-control" placeholder="Enter your OpenAI API key here">
+        <input id="api-key-input" type="password" class="form-control" placeholder="Enter your OpenAI API key here">
       </div>
-      <textarea id="prompt-input" class="form-control mb-3" rows="20"></textarea>
+      <textarea id="text-input" class="form-control mb-3" rows="20"></textarea>
       <div class="input-group mb-3">
-        <input id="speech-input" type="text" class="form-control" value="Human: ">
+        <input id="chat-input" type="text" class="form-control" value="Human: ">
       </div>
       <div class="btn-toolbar">
-        <button class="btn btn-lg btn-primary mr-2" id="submit-button">Submit</button>
-        <button class="btn btn-lg btn-outline-primary mr-2">Retry</button>
+        <button id="submit-button" class="btn btn-lg btn-primary mr-2">Submit</button>
+        <button id="retry-button" class="btn btn-lg btn-outline-primary mr-2">Retry</button>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
