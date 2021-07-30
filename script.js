@@ -1,7 +1,7 @@
 let previousText;
 
 $(document).ready(() => {
-  $('#api-key-input').val(sessionStorage.getItem('api-key'));
+  $('#api-key-input').val(localStorage.getItem('api-key'));
   $('#text-input').val(
     'The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\n' +
     'Human: Hello, who are you?\n' +
@@ -23,7 +23,7 @@ $(document).ready(() => {
   });
 
   $('#api-key-input').change(() => {
-    sessionStorage.setItem('api-key', $('#api-key-input').val());
+    localStorage.setItem('api-key', $('#api-key-input').val());
   });
 });
 
