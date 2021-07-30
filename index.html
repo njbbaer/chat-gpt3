@@ -22,7 +22,10 @@
       </div>
       <textarea id="text-input" class="form-control mb-3" rows="20"></textarea>
       <div class="input-group mb-3">
-        <input id="chat-input" type="text" class="form-control" value="Human: ">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Human: </span>
+        </div>
+        <input id="chat-input" type="text" class="form-control">
       </div>
       <div class="btn-toolbar mb-3">
         <button id="submit-button" class="btn btn-lg btn-primary mr-2">Submit</button>

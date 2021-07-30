@@ -10,8 +10,8 @@ $(document).ready(() => {
   updateCostEstimate();
 
   $('#submit-button').click(() => {
-    $('#text-input').val($('#text-input').val() + '\n' + $('#chat-input').val() + '\n')
-    $('#chat-input').val('Human: ');
+    $('#text-input').val($('#text-input').val() + '\nHuman: ' + $('#chat-input').val() + '\n')
+    $('#chat-input').val('');
     generateCompletion();
   });
 
