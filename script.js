@@ -7,6 +7,7 @@ $(document).ready(() => {
     'Human: Hello, who are you?\n' +
     'AI: I am an AI created by OpenAI. How can I help you today?'
   );
+  updateCostEstimate();
 
   $('#submit-button').click(() => {
     $('#text-input').val($('#text-input').val() + '\n' + $('#chat-input').val() + '\n')
@@ -42,5 +43,16 @@ const generateCompletion = async () => {
     }
   });
   const json = await response.json();
-  $('#text-input').val(json['choices'][0]['text']);
+  const text = json['choices'][0]['text']
+  $('#text-input').val(text);
+  updateCostEstimate(text.length);
+}
+
+
+const updateCostEstimate = (addChars = 0) => {
+  let totalChars = Number(sessionStorage.getItem('total-chars')) || 0
+  totalChars += addChars
+  sessionStorage.setItem('total-chars', totalChars);
+  const cost = (totalChars / 4 / 1024 * 0.06).toFixed(2);
+  $('#cost-estimate').text('💸 $' + cost);
 }
