@@ -10,7 +10,7 @@ $(document).ready(() => {
   updateCostEstimate();
 
   $('#submit-button').click(() => {
-    $('#text-input').val($('#text-input').val() + '\nHuman: ' + $('#chat-input').val() + '\n')
+    updateTextInput($('#text-input').val() + '\nHuman: ' + $('#chat-input').val());
     $('#chat-input').val('');
     generateCompletion();
   });
@@ -28,11 +28,11 @@ $(document).ready(() => {
 });
 
 const generateCompletion = async () => {
-  previousText = $('#text-input').val()
+  previousText = $('#text-input').val();
   const response = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
     method: 'POST',
     body: JSON.stringify({
-      'prompt': $('#text-input').val() + 'AI:',
+      'prompt': $('#text-input').val() + '\nAI:',
       'max_tokens': 128,
       'stop': '\n',
       'echo': true
@@ -43,9 +43,14 @@ const generateCompletion = async () => {
     }
   });
   const json = await response.json();
-  const text = json['choices'][0]['text']
-  $('#text-input').val(text);
+  const text = json['choices'][0]['text'];
+  updateTextInput(text);
   updateCostEstimate(text.length);
+}
+
+const updateTextInput = (text) => {
+  $('#text-input').val(text);
+  $('#text-input').scrollTop($('#text-input')[0].scrollHeight);
 }
 
 
