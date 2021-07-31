@@ -10,7 +10,9 @@ $(document).ready(() => {
   updateCostEstimate();
 
   $('#submit-button').click(() => {
-    updateTextInput($('#text-input').val() + '\nHuman: ' + $('#chat-input').val());
+    if ($('#chat-input').val()) {
+      updateTextInput($('#text-input').val() + '\nHuman: ' + $('#chat-input').val());
+    }
     $('#chat-input').val('');
     generateCompletion();
   });
