@@ -27,9 +27,9 @@ $('#inputApiKey').change(() => {
   localStorage.setItem('api-key', $('#inputApiKey').val());
 });
 
-$("#dropdownTemplate a").click(function() {
-  let selectedTemplate = $(this).text();
-  $("#buttonTemplate").text(selectedTemplate);
+$('#dropdownTemplate a').click(function() {
+  const selectedTemplate = $(this).text();
+  $('#buttonTemplate').text(selectedTemplate);
   if (selectedTemplate === 'Custom') {
     $('#inputUserName').val('');
     $('#inputAiName').val('');
@@ -48,7 +48,7 @@ $("#dropdownTemplate a").click(function() {
     $('#textareaChat').val(
       'Fluttershy is a character from My Little Pony Friendship is Magic who has opened a therapy practice. Fluttershy is kind, empathetic, and a good listener to her clients, whom she helps deal with their problems. The following is a transcript of a conversation between Flutttershy and a recent client.\n\n'
       + 'Fluttershy: Hello dear. How are you feeling today?'
-    )
+    );
   }
 });
 
