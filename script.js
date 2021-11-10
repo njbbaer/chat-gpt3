@@ -6,7 +6,7 @@ $(document).ready(() => {
 });
 
 $('#buttonSubmit').click(() => {
-  const textareaChat = $('#textareaChat').val();
+  const textareaChat = $('#textareaChat').text();
   const inputChat = $('#inputChat').val();
   const inputUserName = $('#inputUserName').val();
   if (inputChat) {
@@ -18,7 +18,7 @@ $('#buttonSubmit').click(() => {
 
 $('#buttonRetry').click(() => {
   if (previousText) {
-    $('#textareaChat').val(previousText);
+    $('#textareaChat').text(previousText);
     generateCompletion();
   }
 });
@@ -33,11 +33,11 @@ $('#dropdownTemplate a').click(function() {
   if (selectedTemplate === 'Custom') {
     $('#inputUserName').val('');
     $('#inputAiName').val('');
-    $('#textareaChat').val('');
+    $('#textareaChat').text('');
   } else if (selectedTemplate === 'AI Chat') {
     $('#inputUserName').val('Human');
     $('#inputAiName').val('AI');
-    $('#textareaChat').val(
+    $('#textareaChat').text(
       'The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\n'
       + 'Human: Hello, who are you?\n'
       + 'AI: I am an AI created by OpenAI. How can I help you today?',
@@ -45,7 +45,7 @@ $('#dropdownTemplate a').click(function() {
   } else if (selectedTemplate === 'Fluttershy Therapist') {
     $('#inputUserName').val('Client');
     $('#inputAiName').val('Fluttershy');
-    $('#textareaChat').val(
+    $('#textareaChat').text(
       'Fluttershy is a character from My Little Pony Friendship is Magic who has opened a therapy practice. Fluttershy is kind, empathetic, and a good listener to her clients, whom she helps deal with their problems. The following is a transcript of a conversation between Flutttershy and a recent client.\n\n'
       + 'Fluttershy: Hello dear. How are you feeling today?'
     );
@@ -53,7 +53,7 @@ $('#dropdownTemplate a').click(function() {
 });
 
 const generateCompletion = async () => {
-  const textareaChat = $('#textareaChat').val();
+  const textareaChat = $('#textareaChat').text();
   const inputAiName = $('#inputAiName').val();
   previousText = textareaChat;
   const response = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
@@ -76,7 +76,7 @@ const generateCompletion = async () => {
 };
 
 const updateTextInput = (text) => {
-  $('#textareaChat').val(text);
+  $('#textareaChat').text(text);
   $('#textareaChat').scrollTop($('#textareaChat')[0].scrollHeight);
 };
 

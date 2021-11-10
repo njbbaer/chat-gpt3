@@ -1,3 +1,7 @@
 .col-form-label {
   padding-right: 0;
 }
+
+#textareaChat {
+  white-space: pre-wrap;
+}
