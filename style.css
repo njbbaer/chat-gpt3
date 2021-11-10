@@ -4,4 +4,9 @@
 
 #textareaChat {
   white-space: pre-wrap;
+  padding: 10px;
+}
+
+#textareaChat:focus {
+  outline: 0px solid transparent;
 }
