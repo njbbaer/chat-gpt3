@@ -11,3 +11,9 @@
 #textareaChat:focus {
   outline: 0px solid transparent;
 }
+
+/* @media (max-width: 800px) {
+  #textareaChat {
+    width: 100%;
+  }
+} */
