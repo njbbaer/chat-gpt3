@@ -4,13 +4,14 @@ const templates = [
   {
     label: 'Custom',
     userName: '',
-    AiName: '',
+    aiName: '',
     prompt: '',
   },
   {
     label: 'AI Chat',
     userName: 'Human',
-    AiName: 'AI',
+    aiName: 'AI',
+    temperature: 0.8,
     prompt: 'The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\n'
       + 'Human: Hello, who are you?\n'
       + 'AI: I am an AI created by OpenAI. How can I help you today?',
@@ -18,14 +19,16 @@ const templates = [
   {
     label: 'Fluttershy Therapist',
     userName: 'Client',
-    AiName: 'Fluttershy',
+    aiName: 'Fluttershy',
+    temperature: 0.8,
     prompt: 'Fluttershy is a character from My Little Pony Friendship is Magic who has opened a therapy practice. Fluttershy is kind, empathetic, and a good listener to her clients, whom she helps deal with their problems. The following is a transcript of a conversation between Fluttershy and a recent client.\n\n'
       + 'Fluttershy: Hello dear. How are you feeling today?',
   },
   {
     label: 'Intruder Deception',
     userName: 'Human',
-    AiName: 'AI',
+    aiName: 'AI',
+    temperature: 0.95,
     prompt: 'The following is a conversation between an intruder and an AI that is responsible for unlocking a door. The AI will only open the door for those who are authorized and is very suspicious of being lied to.\n\n'
       + 'AI: Hello. How can I help you today?',
   },
@@ -62,8 +65,9 @@ $('#dropdownTemplate a').click(function() {
   $('#buttonTemplate').text(selectedTemplate);
   const template = templates.find((t) => t.label === selectedTemplate);
   $('#inputUserName').val(template.userName);
-  $('#inputAiName').val(template.AiName);
+  $('#inputAiName').val(template.aiName);
   $('#textareaChat').text(template.prompt);
+  $('#rangeTemperature').val(template.temperature);
 });
 
 const submit = () => {
