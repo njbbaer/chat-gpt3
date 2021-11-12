@@ -5,6 +5,7 @@
 #textareaChat {
   white-space: pre-wrap;
   padding: 10px;
+  min-height: 200px;
 }
 
 #textareaChat:focus {
