@@ -6,14 +6,13 @@ $(document).ready(() => {
 });
 
 $('#buttonSubmit').click(() => {
-  const textareaChat = $('#textareaChat').text();
-  const inputChat = $('#inputChat').val();
-  const inputUserName = $('#inputUserName').val();
-  if (inputChat) {
-    updateTextInput(`${textareaChat}\n${inputUserName}: ${inputChat}`);
+  submit();
+});
+
+$(document).on('keypress', (e) => {
+  if (e.which === 13) {
+    submit();
   }
-  $('#inputChat').val('');
-  generateCompletion();
 });
 
 $('#buttonRetry').click(() => {
