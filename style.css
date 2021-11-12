@@ -12,8 +12,12 @@
   outline: 0px solid transparent;
 }
 
-/* @media (max-width: 800px) {
-  #textareaChat {
+#rangeTemperature {
+  width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  #rangeTemperature {
     width: 100%;
   }
-} */
+}

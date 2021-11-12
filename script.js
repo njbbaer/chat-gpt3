@@ -80,6 +80,7 @@ const submit = () => {
 const generateCompletion = async () => {
   const textareaChat = $('#textareaChat').text();
   const inputAiName = $('#inputAiName').val();
+  const temperature = parseFloat($('#rangeTemperature').val());
   previousText = textareaChat;
   const response = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
     method: 'POST',
@@ -88,6 +89,7 @@ const generateCompletion = async () => {
       max_tokens: 128,
       stop: '\n',
       echo: true,
+      temperature,
     }),
     headers: {
       'Content-Type': 'application/json',
