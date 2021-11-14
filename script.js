@@ -16,8 +16,7 @@ $('#buttonSubmit').click(() => {
 });
 
 $(document).on('keypress', (e) => {
-  // On enter key
-  if (e.which === 13) {
+  if (e.which === 13 && $('#inputChat').is(":focus")) {
     submit();
   }
 });
