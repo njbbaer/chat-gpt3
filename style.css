@@ -16,8 +16,16 @@
   width: 50%;
 }
 
+#buttonSubmit {
+  width: 200px;
+}
+
 @media screen and (max-width: 768px) {
   #rangeTemperature {
+    width: 100%;
+  }
+
+  #buttonSubmit {
     width: 100%;
   }
 }
