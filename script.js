@@ -74,8 +74,10 @@ const submit = () => {
   const textareaChat = $('#textareaChat').text();
   const inputChat = $('#inputChat').val();
   const inputUserName = $('#inputUserName').val();
-  if (inputChat) {
+  if (inputChat && inputUserName) {
     updateTextInput(`${textareaChat}\n${inputUserName}: ${inputChat}`);
+  } else {
+    updateTextInput(`${textareaChat}${inputChat}`);
   }
   $('#inputChat').val('');
   generateCompletion();
@@ -85,11 +87,11 @@ const generateCompletion = async () => {
   const textareaChat = $('#textareaChat').text();
   const inputAiName = $('#inputAiName').val();
   const temperature = parseFloat($('#rangeTemperature').val());
-  previousText = textareaChat;
+  const prompt = inputAiName ? `${textareaChat} \n${inputAiName}:` : textareaChat;
   const response = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
     method: 'POST',
     body: JSON.stringify({
-      prompt: `${textareaChat} \n${inputAiName}:`,
+      prompt,
       max_tokens: 128,
       stop: '\n',
       echo: true,
