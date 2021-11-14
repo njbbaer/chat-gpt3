@@ -2,6 +2,10 @@ import templates from './templates.json' assert { type: 'json' };
 
 let previousText;
 
+// ------
+// EVENTS
+// ------
+
 $(document).ready(() => {
   $('#inputApiKey').val(localStorage.getItem('api-key'));
   updateCostEstimate();
@@ -12,6 +16,7 @@ $('#buttonSubmit').click(() => {
 });
 
 $(document).on('keypress', (e) => {
+  // On enter key
   if (e.which === 13) {
     submit();
   }
@@ -31,12 +36,12 @@ $('#inputApiKey').change(() => {
 $('#dropdownTemplate a').click(function() {
   const selectedTemplate = $(this).text();
   $('#buttonTemplate').text(selectedTemplate);
-  const template = templates.find((t) => t.label === selectedTemplate);
-  $('#inputUserName').val(template.userName);
-  $('#inputAiName').val(template.aiName);
-  $('#textareaChat').text(template.prompt);
-  $('#rangeTemperature').val(template.temperature);
+  applyTemplate(selectedTemplate)
 });
+
+// ---------
+// FUNCTIONS
+// ---------
 
 const submit = () => {
   const textareaChat = $('#textareaChat').text();
@@ -89,3 +94,11 @@ const updateCostEstimate = (addChars = 0) => {
   const cost = ((totalChars / 4 / 1024) * 0.06).toFixed(2);
   $('#costEstimate').text(`💸 $${cost}`);
 };
+
+const applyTemplate = (selectedTemplate) => {
+  const template = templates.find((t) => t.label === selectedTemplate);
+  $('#inputUserName').val(template.userName);
+  $('#inputAiName').val(template.aiName);
+  $('#textareaChat').text(template.prompt);
+  $('#rangeTemperature').val(template.temperature);
+}
