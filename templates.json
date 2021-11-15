@@ -9,7 +9,7 @@
     "label": "AI Chat",
     "userName": "You",
     "aiName": "AI",
-    "temperature": 0.8,
+    "temperature": 0.9,
     "prompt": "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?"
   },
   {
@@ -37,7 +37,7 @@
     "label": "The Burning Bush",
     "userName": "Moses",
     "aiName": "LORD",
-    "temperature": 0.8,
+    "temperature": 0.9,
     "prompt": "Now Moses was tending the flock of Jethro his father-in-law, the priest of Midian, and he led the flock to the far side of the desert and came to Horeb, the mountain of God. There the angel of the LORD appeared to him in flames of fire from within a bush. Moses saw that though the bush was on fire it did not burn up. So Moses thought, I will go over and see this strange sight—why the bush does not burn up. When the LORD saw that he had gone over to look, God called to him from within the bush.\n\nLORD: Moses! Moses!\nMoses: Here I am\nLORD: Do not come any closer. Take off your sandals, for the place where you are standing is holy ground. I am the God of your father, the God of Abraham, the God of Isaac and the God of Jacob."
   }
 ]
